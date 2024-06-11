@@ -80,18 +80,7 @@ class BankAccount:
     @property
     def balance(self):
         return self.__balance
-    
-    @balance.setter
-    def balance(self, amount):
-        if amount < 0:
-            raise ValueError("Amount must be more than zero")
-        
-        self.__balance = amount
-    
-    @balance.deleter
-    def balance(self):
-        del self.__balance
-    
+
     @property
     def account_number(self):
         return self.__account_number
@@ -116,7 +105,7 @@ class BankAccount:
 
         if input_email == owner_email and input_name == owner_name:
             print("Validation passed, operation success")
-            self.balance += amount
+            self.__balance += amount
         else:
             print("Validation not passed, access denied")
     
@@ -135,7 +124,7 @@ class BankAccount:
             if amount > self.balance:
                 raise ValueError("Cannot sub more amount than balance")
             else:
-                self.balance -= amount
+                self.__balance -= amount
 
         else:
             print("Validation not passed, access denied")
